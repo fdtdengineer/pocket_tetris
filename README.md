@@ -1,55 +1,76 @@
 # Pocket Tetris
 
-iPhone・Android・PCで遊べる、GitHub Pages向けのレスポンシブなテトリス風Webゲームです。
+A responsive Tetris-style web game built for iPhone, Android, and desktop browsers. It is designed for GitHub Pages and requires no build process.
 
-## 特徴
+## Features
 
-- ビルド不要。HTML / CSS / JavaScriptのみ
-- iPhoneを含むスマホ画面に自動調整
-- タッチボタン対応
-- PCの十字キー対応
-- ハードドロップ、ホールド、次ブロック表示
-- 一時停止、ゴースト表示、レベルアップ
-- PWA対応。ホーム画面に追加可能
-- Service Workerによるオフラインキャッシュ
+- Built with plain HTML, CSS, and JavaScript
+- Responsive layout for phones, tablets, and desktop screens
+- Touch controls for mobile devices
+- Keyboard controls for desktop browsers
+- Hard drop, hold, next-piece preview, and ghost piece
+- Pause, scoring, line count, and level progression
+- PWA support for adding the game to a home screen
+- Offline caching with a Service Worker
+- Extra bottom clearance for the iPhone Safari toolbar
 
-## 操作
+## Play Online
 
-### PC
+https://fdtdengineer.github.io/pocket_tetris/
 
-- `←` / `→`: 左右移動
-- `↓`: ソフトドロップ
-- `↑`: 回転
-- `Space`: ハードドロップ
-- `C`: ホールド
-- `P` または `Esc`: 一時停止
+## Controls
 
-### スマホ
+### Desktop
 
-画面下部のタッチボタンを使用します。左右移動と下移動は長押しにも対応しています。
+- `←` / `→`: Move left or right
+- `↓`: Soft drop
+- `↑`: Rotate
+- `Space`: Hard drop
+- `C`: Hold
+- `P` or `Esc`: Pause
 
-## ローカル起動
+### Mobile
 
-Service Workerを含めて確認する場合は、ファイルを直接開かず簡易HTTPサーバーを使ってください。
+Use the touch buttons below the game board. The left, right, and down buttons support press-and-hold input.
+
+## Run Locally
+
+Because the project uses a Service Worker, serve it through a local HTTP server instead of opening `index.html` directly.
 
 ```bash
 python -m http.server 8000
 ```
 
-その後、ブラウザで `http://localhost:8000` を開きます。
-
-## GitHub Pages
-
-このリポジトリにはGitHub Pages用のActionsワークフローが含まれています。リポジトリの `Settings` → `Pages` でSourceを `GitHub Actions` に設定すると、`main` ブランチへの更新時に自動公開されます。
-
-公開URL:
+Then open:
 
 ```text
-https://fdtdengineer.github.io/pocket_tetris/
+http://localhost:8000
 ```
 
-Pages deployment trigger: 2026-07-19
+## GitHub Pages Deployment
 
-## ライセンス
+This repository includes a GitHub Actions workflow for GitHub Pages. In the repository settings, select:
+
+```text
+Settings → Pages → Build and deployment → Source → GitHub Actions
+```
+
+Every push to the `main` branch will then deploy the latest version automatically.
+
+## Project Structure
+
+```text
+.
+├── index.html
+├── style.css
+├── mobile-fix.css
+├── game.js
+├── ui-english.js
+├── manifest.webmanifest
+├── service-worker.js
+└── .github/workflows/pages.yml
+```
+
+## License
 
 MIT License
