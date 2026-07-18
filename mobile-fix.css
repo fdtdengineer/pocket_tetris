@@ -1,0 +1,43 @@
+/* iPhone Safari browser chrome / safe-area adjustments */
+:root {
+  --browser-bottom-clearance: 104px;
+}
+
+@supports (height: 100dvh) {
+  body {
+    min-height: 100dvh;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  body {
+    padding-bottom: calc(env(safe-area-inset-bottom, 0px) + var(--browser-bottom-clearance));
+  }
+
+  .app-shell {
+    min-height: calc(100dvh - env(safe-area-inset-top, 0px));
+  }
+
+  .touch-controls {
+    position: relative;
+    z-index: 5;
+    margin-bottom: env(safe-area-inset-bottom, 0px);
+  }
+}
+
+/* Installed PWA / standalone mode has no Safari bottom toolbar. */
+@media (display-mode: standalone) {
+  :root {
+    --browser-bottom-clearance: 16px;
+  }
+}
+
+@media (max-width: 560px) {
+  .touch-controls {
+    gap: 10px;
+  }
+
+  .control-button {
+    min-height: 58px;
+  }
+}
