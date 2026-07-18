@@ -48,6 +48,8 @@ python -m http.server 8000
 https://fdtdengineer.github.io/pocket_tetris/
 ```
 
+Pages deployment trigger: 2026-07-19
+
 ## ライセンス
 
 MIT License
