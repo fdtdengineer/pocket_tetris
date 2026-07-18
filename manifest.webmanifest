@@ -1,0 +1,11 @@
+{
+  "name": "Pocket Tetris",
+  "short_name": "Tetris",
+  "description": "iPhone・Android・PCで遊べるレスポンシブなテトリス風Webゲーム",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#080b16",
+  "theme_color": "#0b1020",
+  "orientation": "any",
+  "icons": []
+}
