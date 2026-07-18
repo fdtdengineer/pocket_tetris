@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+  <meta name="theme-color" content="#0b1020" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Pocket Tetris" />
+  <title>Pocket Tetris</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app-shell" aria-label="テトリスゲーム">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">RESPONSIVE WEB GAME</p>
+        <h1>Pocket Tetris</h1>
+      </div>
+      <button id="pauseButton" class="icon-button" type="button" aria-label="一時停止">II</button>
+    </header>
+
+    <section class="game-layout">
+      <aside class="stats-panel stats-left" aria-label="ゲーム情報">
+        <div class="stat-card">
+          <span>Score</span>
+          <strong id="score">0</strong>
+        </div>
+        <div class="stat-card">
+          <span>Lines</span>
+          <strong id="lines">0</strong>
+        </div>
+        <div class="stat-card">
+          <span>Level</span>
+          <strong id="level">1</strong>
+        </div>
+        <div class="mini-card">
+          <span>Hold</span>
+          <canvas id="holdCanvas" width="120" height="120" aria-label="ホールド中のブロック"></canvas>
+        </div>
+      </aside>
+
+      <section class="board-wrap" aria-label="ゲーム盤">
+        <canvas id="gameCanvas" width="300" height="600"></canvas>
+        <div id="overlay" class="overlay is-visible" role="dialog" aria-live="polite">
+          <div class="overlay-card">
+            <p class="overlay-kicker">Ready?</p>
+            <h2 id="overlayTitle">Pocket Tetris</h2>
+            <p id="overlayText">タッチ操作または十字キーでプレイできます。</p>
+            <button id="startButton" class="primary-button" type="button">Start Game</button>
+          </div>
+        </div>
+      </section>
+
+      <aside class="stats-panel stats-right">
+        <div class="mini-card">
+          <span>Next</span>
+          <canvas id="nextCanvas" width="120" height="360" aria-label="次のブロック"></canvas>
+        </div>
+        <div class="help-card">
+          <span>PC Controls</span>
+          <p>← → 移動</p>
+          <p>↑ 回転 / ↓ 落下</p>
+          <p>Space ハードドロップ</p>
+          <p>C ホールド / P 一時停止</p>
+        </div>
+      </aside>
+    </section>
+
+    <section class="touch-controls" aria-label="タッチ操作">
+      <div class="control-group horizontal-controls">
+        <button class="control-button" data-action="left" type="button" aria-label="左へ移動">←</button>
+        <button class="control-button" data-action="down" type="button" aria-label="下へ移動">↓</button>
+        <button class="control-button" data-action="right" type="button" aria-label="右へ移動">→</button>
+      </div>
+      <div class="control-group action-controls">
+        <button class="control-button accent" data-action="rotate" type="button" aria-label="回転">↻</button>
+        <button class="control-button accent" data-action="hardDrop" type="button" aria-label="一気に落下">⇣</button>
+        <button class="control-button accent" data-action="hold" type="button" aria-label="ホールド">HOLD</button>
+      </div>
+    </section>
+
+    <footer>
+      <span>GitHub Pages ready</span>
+      <span>iPhone / Android / PC</span>
+    </footer>
+  </main>
+
+  <script src="game.js"></script>
+</body>
+</html>
