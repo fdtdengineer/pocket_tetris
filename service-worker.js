@@ -1,9 +1,11 @@
-const CACHE_NAME = 'pocket-tetris-v1';
+const CACHE_NAME = 'pocket-tetris-v2';
 const ASSETS = [
   './',
   './index.html',
   './style.css',
+  './mobile-fix.css',
   './game.js',
+  './ui-english.js',
   './manifest.webmanifest',
 ];
 
