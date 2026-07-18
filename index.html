@@ -8,9 +8,9 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Pocket Tetris" />
   <title>Pocket Tetris</title>
-  <link rel="manifest" href="manifest.webmanifest" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="mobile-fix.css" />
+  <link rel="manifest" href="manifest.webmanifest?v=3" />
+  <link rel="stylesheet" href="style.css?v=3" />
+  <link rel="stylesheet" href="mobile-fix.css?v=3" />
 </head>
 <body>
   <main class="app-shell" aria-label="Tetris game">
@@ -24,22 +24,10 @@
 
     <section class="game-layout">
       <aside class="stats-panel stats-left" aria-label="Game information">
-        <div class="stat-card">
-          <span>Score</span>
-          <strong id="score">0</strong>
-        </div>
-        <div class="stat-card">
-          <span>Lines</span>
-          <strong id="lines">0</strong>
-        </div>
-        <div class="stat-card">
-          <span>Level</span>
-          <strong id="level">1</strong>
-        </div>
-        <div class="mini-card">
-          <span>Hold</span>
-          <canvas id="holdCanvas" width="120" height="120" aria-label="Held piece"></canvas>
-        </div>
+        <div class="stat-card"><span>Score</span><strong id="score">0</strong></div>
+        <div class="stat-card"><span>Lines</span><strong id="lines">0</strong></div>
+        <div class="stat-card"><span>Level</span><strong id="level">1</strong></div>
+        <div class="mini-card"><span>Hold</span><canvas id="holdCanvas" width="120" height="120" aria-label="Held piece"></canvas></div>
       </aside>
 
       <section class="board-wrap" aria-label="Game board">
@@ -55,16 +43,10 @@
       </section>
 
       <aside class="stats-panel stats-right">
-        <div class="mini-card">
-          <span>Next</span>
-          <canvas id="nextCanvas" width="120" height="360" aria-label="Next pieces"></canvas>
-        </div>
+        <div class="mini-card"><span>Next</span><canvas id="nextCanvas" width="120" height="360" aria-label="Next pieces"></canvas></div>
         <div class="help-card">
           <span>PC Controls</span>
-          <p>← → Move</p>
-          <p>↑ Rotate / ↓ Soft drop</p>
-          <p>Space: Hard drop</p>
-          <p>C: Hold / P: Pause</p>
+          <p>← → Move</p><p>↑ Rotate / ↓ Soft drop</p><p>Space: Hard drop</p><p>C: Hold / P: Pause</p>
         </div>
       </aside>
     </section>
@@ -82,13 +64,10 @@
       </div>
     </section>
 
-    <footer>
-      <span>GitHub Pages ready</span>
-      <span>iPhone / Android / PC</span>
-    </footer>
+    <footer><span>GitHub Pages ready</span><span>iPhone / Android / PC</span></footer>
   </main>
 
-  <script src="game.js"></script>
-  <script src="ui-english.js"></script>
+  <script src="game.js?v=3"></script>
+  <script src="ui-english.js?v=3"></script>
 </body>
 </html>
