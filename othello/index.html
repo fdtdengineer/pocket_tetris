@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+  <meta name="theme-color" content="#07150f" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Pocket Othello" />
+  <title>Pocket Othello</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">RESPONSIVE BOARD GAME</p>
+        <h1>Pocket Othello</h1>
+      </div>
+      <div id="connectionBadge" class="connection-badge" data-state="offline">Offline</div>
+    </header>
+
+    <section class="game-layout">
+      <aside class="panel score-panel" aria-label="Game score">
+        <div class="mode-label" id="modeLabel">Choose a game mode</div>
+        <div class="score-row black-score">
+          <span class="score-disc disc black" aria-hidden="true"></span>
+          <div><small>Black</small><strong id="blackScore">2</strong></div>
+        </div>
+        <div class="score-row white-score">
+          <span class="score-disc disc white" aria-hidden="true"></span>
+          <div><small>White</small><strong id="whiteScore">2</strong></div>
+        </div>
+        <div class="turn-card">
+          <span>Turn</span>
+          <strong id="turnText">Black</strong>
+        </div>
+        <button id="restartButton" class="secondary-button" type="button">Restart</button>
+        <button id="resignButton" class="text-button" type="button">Resign</button>
+      </aside>
+
+      <section class="board-column">
+        <div class="board-frame">
+          <div id="board" class="board" role="grid" aria-label="Othello board"></div>
+          <div id="thinkingIndicator" class="thinking-indicator" hidden>CPU is thinking…</div>
+        </div>
+        <div id="statusMessage" class="status-message" aria-live="polite">Choose CPU or Online Play to begin.</div>
+      </section>
+
+      <aside class="panel controls-panel">
+        <div class="mode-tabs" role="tablist" aria-label="Game mode">
+          <button id="cpuTab" class="mode-tab is-active" type="button" role="tab" aria-selected="true">CPU</button>
+          <button id="onlineTab" class="mode-tab" type="button" role="tab" aria-selected="false">Online</button>
+        </div>
+
+        <section id="cpuPanel" class="mode-panel">
+          <p class="panel-kicker">Play against the computer</p>
+          <label class="field-label" for="difficultySelect">Difficulty</label>
+          <select id="difficultySelect">
+            <option value="easy">Easy</option>
+            <option value="medium" selected>Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+          <p class="helper-text">You play Black and move first.</p>
+          <button id="startCpuButton" class="primary-button" type="button">Start CPU Game</button>
+        </section>
+
+        <section id="onlinePanel" class="mode-panel" hidden>
+          <p class="panel-kicker">Play another person</p>
+          <button id="createRoomButton" class="primary-button" type="button">Create Room</button>
+          <div id="roomCard" class="room-card" hidden>
+            <span>Room code</span>
+            <strong id="roomCodeText">------</strong>
+            <button id="copyRoomButton" class="secondary-button compact" type="button">Copy / Share</button>
+          </div>
+          <div class="divider"><span>or</span></div>
+          <label class="field-label" for="roomCodeInput">Join with a room code</label>
+          <input id="roomCodeInput" type="text" maxlength="6" inputmode="text" autocomplete="off" placeholder="ABC123" aria-label="Room code" />
+          <button id="joinRoomButton" class="secondary-button" type="button">Join Room</button>
+          <p class="helper-text">Both players must keep this page open. Game data travels directly between browsers.</p>
+        </section>
+      </aside>
+    </section>
+
+    <footer>
+      <span>GitHub Pages ready</span>
+      <span>iPhone / Android / PC</span>
+    </footer>
+  </main>
+
+  <div id="resultDialog" class="dialog-backdrop" hidden>
+    <section class="dialog-card" role="dialog" aria-modal="true" aria-labelledby="resultTitle">
+      <p class="panel-kicker">Game over</p>
+      <h2 id="resultTitle">Black wins</h2>
+      <p id="resultText">34 – 30</p>
+      <button id="playAgainButton" class="primary-button" type="button">Play Again</button>
+      <button id="closeDialogButton" class="text-button" type="button">Close</button>
+    </section>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/peerjs@1.5.5/dist/peerjs.min.js"></script>
+  <script src="core.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
